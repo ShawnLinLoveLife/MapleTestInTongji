@@ -1,0 +1,30 @@
+n1
+[netrimx@NITOS netrimx]$ sudo ovs-ofctl dump-flows fbr -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x3a0000000000005c, duration=170.72s, table=0, n_packets=19, n_bytes=1446, priority=12,tcp,nw_src=192.168.0.11,nw_dst=192.168.0.13,tp_dst=80 actions=output:3
+ cookie=0x3a00000000000043, duration=323.556s, table=0, n_packets=6, n_bytes=468, priority=4,ip,nw_src=192.168.0.13,nw_dst=192.168.0.11 actions=output:1
+ cookie=0x3a00000000000063, duration=170.72s, table=0, n_packets=0, n_bytes=0, priority=9,ip,nw_src=192.168.0.11,nw_dst=192.168.0.13 actions=CONTROLLER:65535
+ cookie=0x3a00000000000062, duration=170.72s, table=0, n_packets=23, n_bytes=10452, priority=6,tcp,nw_src=192.168.0.13,nw_dst=192.168.0.11,tp_src=80 actions=output:1
+ cookie=0x3a0000000000005b, duration=170.72s, table=0, n_packets=129, n_bytes=11040, priority=8,ip,nw_src=192.168.0.11 actions=drop
+[netrimx@NITOS netrimx]$ 
+[netrimx@NITOS netrimx]$ 
+
+n2
+[netrimx@NITOS netrimx]$ sudo ovs-ofctl dump-flows Fbridge -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x3a0000000000005d, duration=179.028s, table=0, n_packets=19, n_bytes=1446, priority=12,tcp,nw_src=192.168.0.11,nw_dst=192.168.0.13,tp_dst=80 actions=output:2
+ cookie=0x3a00000000000061, duration=179.028s, table=0, n_packets=23, n_bytes=10452, priority=6,tcp,nw_src=192.168.0.13,nw_dst=192.168.0.11,tp_src=80 actions=output:1
+[xnet@NITOS xnet]$ 
+[xnet@NITOS xnet]$ 
+
+n3
+[xnet@NITOS xnet]$ sudo ovs-ofctl dump-flows fbr -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x3a0000000000005e, duration=186.369s, table=0, n_packets=19, n_bytes=1446, priority=12,tcp,nw_src=192.168.0.11,nw_dst=192.168.0.13,tp_dst=80 actions=output:1
+ cookie=0x3a00000000000042, duration=339.202s, table=0, n_packets=6, n_bytes=468, priority=4,ip,nw_src=192.168.0.13,nw_dst=192.168.0.11 actions=output:3
+ cookie=0x3a0000000000005a, duration=186.369s, table=0, n_packets=0, n_bytes=0, priority=10,ip,nw_src=192.168.0.11,nw_dst=192.168.0.13 actions=output:1
+ cookie=0x3a00000000000060, duration=186.369s, table=0, n_packets=23, n_bytes=10452, priority=6,tcp,nw_src=192.168.0.13,nw_dst=192.168.0.11,tp_src=80 actions=output:4
+ cookie=0x3a0000000000005f, duration=186.369s, table=0, n_packets=0, n_bytes=0, priority=7,ip,nw_src=192.168.0.11 actions=CONTROLLER:65535
+ cookie=0x3a00000000000045, duration=339.202s, table=0, n_packets=0, n_bytes=0, priority=2,ip,nw_src=192.168.0.13 actions=drop
+ cookie=0x3a0000000000001e, duration=351.76s, table=0, n_packets=8, n_bytes=784, priority=0,ip actions=drop
+
