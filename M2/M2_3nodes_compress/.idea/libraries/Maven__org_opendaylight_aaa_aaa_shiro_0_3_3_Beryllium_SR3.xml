@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.opendaylight.aaa:aaa-shiro:0.3.3-Beryllium-SR3">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/aaa/aaa-shiro/0.3.3-Beryllium-SR3/aaa-shiro-0.3.3-Beryllium-SR3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/aaa/aaa-shiro/0.3.3-Beryllium-SR3/aaa-shiro-0.3.3-Beryllium-SR3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/opendaylight/aaa/aaa-shiro/0.3.3-Beryllium-SR3/aaa-shiro-0.3.3-Beryllium-SR3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

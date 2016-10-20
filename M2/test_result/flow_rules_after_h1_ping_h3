@@ -1,0 +1,25 @@
+n1
+[netrimx@NITOS netrimx]$ sudo ovs-ofctl dump-flows fbr -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x3a00000000000016, duration=63.412s, table=0, n_packets=0, n_bytes=0, priority=8,tcp,nw_src=192.168.0.11,nw_dst=192.168.0.13,tp_dst=80 actions=CONTROLLER:65535
+ cookie=0x3a00000000000011, duration=63.428s, table=0, n_packets=29, n_bytes=2262, priority=2,ip,nw_src=192.168.0.13,nw_dst=192.168.0.11 actions=output:1
+ cookie=0x3a00000000000014, duration=63.412s, table=0, n_packets=29, n_bytes=2262, priority=7,ip,nw_src=192.168.0.11,nw_dst=192.168.0.13 actions=output:4
+ cookie=0x3a00000000000017, duration=63.412s, table=0, n_packets=38, n_bytes=3200, priority=5,ip,nw_src=192.168.0.11 actions=drop
+[netrimx@NITOS netrimx]$ 
+[netrimx@NITOS netrimx]$ 
+
+n2
+[netrimx@NITOS netrimx]$ sudo ovs-ofctl dump-flows Fbridge -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+[xnet@NITOS xnet]$ 
+[xnet@NITOS xnet]$ 
+
+n3
+[xnet@NITOS xnet]$ sudo ovs-ofctl dump-flows fbr -O OpenFlow13
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+ cookie=0x3a00000000000010, duration=95.196s, table=0, n_packets=29, n_bytes=2262, priority=2,ip,nw_src=192.168.0.13,nw_dst=192.168.0.11 actions=output:3
+ cookie=0x3a00000000000015, duration=95.185s, table=0, n_packets=29, n_bytes=2262, priority=7,ip,nw_src=192.168.0.11,nw_dst=192.168.0.13 actions=output:1
+ cookie=0x3a00000000000018, duration=95.166s, table=0, n_packets=0, n_bytes=0, priority=3,tcp,nw_src=192.168.0.13,nw_dst=192.168.0.11,tp_src=80 actions=CONTROLLER:65535
+ cookie=0x3a00000000000009, duration=95.209s, table=0, n_packets=0, n_bytes=0, priority=4,ip,nw_src=192.168.0.11 actions=CONTROLLER:65535
+[netrimx@NITOS netrimx]$ 
+
