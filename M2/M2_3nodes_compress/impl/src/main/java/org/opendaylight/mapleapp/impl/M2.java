@@ -40,7 +40,7 @@ public class M2 extends MapleAppBase {
 	private static final String[] H31_LOW_PATH  = { "openflow:949187772416:3", "openflow:966034607844:1" };
 
 	public void staticRoute(MaplePacket pkt) {
-		// H1 (client) -> H2 (server)
+		// H1 (client) -> H3 (server)
 		if ( pkt.IPv4SrcIs(H1_IP) && pkt.IPv4DstIs(H3_IP) ) {
 
 			String[] path = null;
@@ -53,7 +53,7 @@ public class M2 extends MapleAppBase {
 
 			pkt.setRoute(path);
 
-			// Reverse: H2 -> H1
+			// Reverse: H3 -> H1
 		} else if ( pkt.IPv4SrcIs(H3_IP) && pkt.IPv4DstIs(H1_IP) ) {
 
 			String[] path = null;
