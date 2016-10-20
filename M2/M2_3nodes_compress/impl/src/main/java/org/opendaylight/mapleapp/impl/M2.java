@@ -19,9 +19,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
-public class M2realswitch extends MapleAppBase {
+public class M2 extends MapleAppBase {
 
-	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(M2realswitch.class);
+	private static final org.slf4j.Logger LOG = LoggerFactory.getLogger(M2.class);
 
 	private static final String TOPO_URL       = "/root/network-topology/topology";
 	private static final String HOST_TABLE_URL = "/root/host-table";
