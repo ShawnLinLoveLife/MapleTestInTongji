@@ -83,7 +83,7 @@ public class SimpleSFC extends MapleAppBase {
 
 					// At the same time, send the packet to the origin destination.
                     // TODO: This flow needs hard timeout, so that we could trigger the second packet-in, and set up
-                    // the fat path.
+                    // the fast path.
 					pkt.addRoute(H13_SLOW_PATH);
 
 				}
