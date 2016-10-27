@@ -82,13 +82,13 @@ public class SimpleSFC extends MapleAppBase {
 					}
 
 					// At the same time, send the packet to the origin destination.
-                    // TODO: This flow need hard timeout, so that we could trigger the second packet-in, and set up
+                    // TODO: This flow needs hard timeout, so that we could trigger the second packet-in, and set up
                     // the fat path.
 					pkt.addRoute(H13_SLOW_PATH);
 
 				}
 
-				// Suppose all science big files start with "SC_"
+				// Suppose all science big files start with "SC_".
 				// The second pakcet-in may be needed, so that the flow on the slow path can be shifted into the fast
 				// path.
 				else if ( fn.startsWith("SC_") ) {
