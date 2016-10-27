@@ -82,7 +82,7 @@ public class SimpleSFC extends MapleAppBase {
 					}
 
 					// At the same time, send the packet to the origin destination
-					// TODO: This flow may need hard time out, so we can shift this flow to the fast path later.
+                    // This flow may need hard time out, so we can shift this flow to the fast path later.
 					pkt.addRoute(H13_SLOW_PATH);
 
 				}
@@ -96,7 +96,7 @@ public class SimpleSFC extends MapleAppBase {
 
 				} else {
 
-						pkt.addRoute(H13_SLOW_PATH);
+                    pkt.addRoute(H13_SLOW_PATH);
 
 				}
 
@@ -104,10 +104,14 @@ public class SimpleSFC extends MapleAppBase {
 
 				// TODO: Need to know what path this packet belongs to, fast path or slow path
 				if ( pkt belongs to FAST_PATH ) {
+
 					pkt.addRoute(H31_FAST_PATH);
+
 				}
 				else {
+
 					pkt.addRoute(H31_SLOW_PATH);
+
 				}
 
 			} else {
