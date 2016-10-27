@@ -81,14 +81,15 @@ public class SimpleSFC extends MapleAppBase {
 						forwardToBro(pkt);
 					}
 
-					// At the same time, send the packet to the origin destination
-					// TODO: This flow may need hard time out, so we can shift this flow to the fast path later.
+					// At the same time, send the packet to the origin destination.
+                    // TODO: This flow need hard timeout, so that we could trigger the second packet-in, and set up
+                    // the fat path.
 					pkt.addRoute(H13_SLOW_PATH);
 
 				}
 
 				// Suppose all science big files start with "SC_"
-				// A second pakcet-in may be needed, so that the flow on the slow path can be shifted into the fast
+				// The second pakcet-in may be needed, so that the flow on the slow path can be shifted into the fast
 				// path.
 				else if ( fn.startsWith("SC_") ) {
 
@@ -96,7 +97,7 @@ public class SimpleSFC extends MapleAppBase {
 
 				} else {
 
-						pkt.addRoute(H13_SLOW_PATH);
+                    pkt.addRoute(H13_SLOW_PATH);
 
 				}
 
@@ -104,10 +105,14 @@ public class SimpleSFC extends MapleAppBase {
 
 				// TODO: Need to know what path this packet belongs to, fast path or slow path
 				if ( pkt belongs to FAST_PATH ) {
+
 					pkt.addRoute(H31_FAST_PATH);
+
 				}
 				else {
+
 					pkt.addRoute(H31_SLOW_PATH);
+
 				}
 
 			} else {
