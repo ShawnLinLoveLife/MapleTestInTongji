@@ -71,24 +71,24 @@ public class SimpleSFC extends MapleAppBase {
 
 			if ( pkt.IPv4SrcIs(H1_IP) && pkt.IPv4DstIs(H3_IP) ) {
 
-				// TODO: Need to decide the key of the mapping between flows and filenames
+				// TODO: Need to decide the key of the mapping between flows and filenames.
 				String fn = flow2Filename(pkt.flow);
 
 				if ( fn == null ) {
 
-					// TODO: Need to know this packet is the starting point of a transfer
+					// TODO: Need to know this packet is the starting point of a transfer.
 					if ( pkt includes the HTTP GET request ) {
 						forwardToBro(pkt);
 					}
 
 					// At the same time, send the packet to the origin destination
-					// TODO: This flow may need hard time out. So we can shift this flow to the fast path
+					// TODO: This flow may need hard time out, so we can shift this flow to the fast path later.
 					pkt.addRoute(H13_SLOW_PATH);
 
 				}
 
-				// Suppose all science big files begin with "SC_"
-				// A second pakcet-in may be needed, so that the flow on the slow path can be shifted in to the fast
+				// Suppose all science big files start with "SC_"
+				// A second pakcet-in may be needed, so that the flow on the slow path can be shifted into the fast
 				// path.
 				else if ( fn.startsWith("SC_") ) {
 
@@ -115,14 +115,15 @@ public class SimpleSFC extends MapleAppBase {
 				pkt.addRoute(Route.Drop);
 
 			}
-		}
+		} // end of IPv4 Packets
 
 		else {
 
+            // Other type of traffic handled by another Maple App
 			passToNext(pkt);
 
 		}
-	}
+	} // end of onPacket
 }
 
 
